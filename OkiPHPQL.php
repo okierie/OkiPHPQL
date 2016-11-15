@@ -1,6 +1,6 @@
 <?php
 /*
- * Class Okiproses by okierie | This project is licensed under the terms of the MIT license
+ * Class OkiPHPQL by okierie | This project is licensed under the terms of the MIT license
  * Dibuat untuk menyederhanakan penulisan query dalam pemrograman php terstruktur
  * dengan menggunakan driver mysqli dan kompatibel dengan PHP versi 5.2+
  * Penggunaan fungsi harus mengikuti standar dalam class ini
