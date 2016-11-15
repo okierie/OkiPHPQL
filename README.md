@@ -16,7 +16,7 @@ Class ini dibuat dengan gaya penulisan kode dasar agar mudah dimengerti dan muda
 ## Cara Penggunaan
 Class ini dapat digunakan/dimasukkan dengan metode `include`, `require`, atau `require_once`, sama dengan cara menggunakan class biasanya.
 Inisiasi class:
-```
+``` PHP
 	require_once('OkiPHPQL.php');
 	$mysql	= new OkiPHPQL();
 ```
@@ -36,7 +36,7 @@ Class OkiPHPQL dapat menerima parameter operan dengan urutan sebagai berikut : `
 Pada kode program setelah memasukkan file `OkiPHPQL.php` menggunakan `include`, `require`, atau `require_once`:
 * Tentukan parameter koneksi database dan passing ke dalam class
 * Contoh:
-```
+``` PHP
 	require_once('OkiPHPQL.php');
 	$dbhost		= "localhost";
 	$dbuser		= "root";
@@ -50,7 +50,7 @@ Jangan lupa untuk inisiasi class dengan variabel `$mysql` sebelum menulis contoh
 
 #### Melakukan INSERT
 Parameter INSERT dibuat dalam bentuk array asosiatif. Contoh:
-```
+``` PHP
 $tabel	= "namatabel";
 $record	= array(
 	"NamaKolom1"	=> 'isikolom1',
@@ -61,7 +61,7 @@ $record	= array(
 $mysql->insert($tabel,$record);
 ```
 atau
-```
+``` PHP
 $tabel	= "namatabel";
 $record["NamaKolom1"]	= 'isikolom1';
 $record["NamaKolom2"]	= 'isikolom2';
@@ -70,7 +70,7 @@ $record["NamaKolom4"]	= 'isikolom4';
 $mysql->insert($tabel,$record);
 ```
 Kode di atas akan menghasilkan dan menjalankan query sebagai berikut:
-```
+``` MySQL
 INSERT INTO `namatabel` (`NamaKolom1`,`NamaKolom2`,`NamaKolom3`,`NamaKolom4`) VALUES ('isikolom1','isikolom2','isikolom3','isikolom4')
 ```
 
