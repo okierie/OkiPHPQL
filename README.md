@@ -48,7 +48,7 @@ Pada kode program setelah memasukkan file `OkiPHPQL.php` menggunakan `include`, 
 ### Contoh Penggunaan
 Jangan lupa untuk inisiasi class dengan variabel `$mysql` sebelum menulis contoh-contoh di bawah ini.
 
-#### Melakukan INSERT
+#### Melakukan INSERT `insert()`
 Parameter INSERT dibuat dalam bentuk array asosiatif. Contoh:
 ``` PHP
 $tabel	= "namatabel";
@@ -70,8 +70,61 @@ $record["NamaKolom4"]	= 'isikolom4';
 $mysql->insert($tabel,$record);
 ```
 Kode di atas akan menghasilkan dan menjalankan query sebagai berikut:
-``` MySQL
-INSERT INTO `namatabel` (`NamaKolom1`,`NamaKolom2`,`NamaKolom3`,`NamaKolom4`) VALUES ('isikolom1','isikolom2','isikolom3','isikolom4')
+``` SQL
+INSERT INTO `namatabel` 
+(`NamaKolom1`,`NamaKolom2`,`NamaKolom3`,`NamaKolom4`) 
+VALUES 
+('isikolom1','isikolom2','isikolom3','isikolom4')
 ```
 
-#### Melakukan UPDATE
+#### Melakukan UPDATE `update()`
+Parameter UPDATE dibuat dalam bentuk array asosiatif. Parameter WHERE bisa berupa string atau array asosiatif. Contoh:
+``` PHP
+$tabel	= "namatabel";
+$record	= array(
+	"NamaKolom1"	=> 'isikolom1',
+	"NamaKolom2"	=> 'isikolom2',
+);
+$where	= array(
+	"ID"	=> "ID Record"
+);
+$mysql->update($tabel,$record,$where);
+```
+atau
+``` PHP
+$tabel	= "namatabel";
+$record["NamaKolom1"]	= 'isikolom1';
+$record["NamaKolom2"]	= 'isikolom2';
+$where["ID"]	= "ID Record";
+$mysql->update($tabel,$record,$where);
+```
+Kode di atas akan menghasilkan dan menjalankan query sebagai berikut:
+``` SQL
+UPDATE `namatabel` 
+SET 
+`NamaKolom1` = 'isikolom1', `NamaKolom2` = 'isikolom2' 
+WHERE
+`ID` = 'ID Record'
+```
+
+#### Melakukan DELETE `delete()`
+Parameter WHERE bisa berupa string atau array asosiatif. Contoh:
+``` PHP
+$tabel	= "namatabel";
+$where	= array(
+	"ID"	=> "ID Record"
+);
+$mysql->delete($tabel,$where);
+```
+atau
+``` PHP
+$tabel	= "namatabel";
+$where	= "`ID` = 'ID Record'";
+$mysql->delete($tabel,$where);
+```
+Kode di atas akan menghasilkan dan menjalankan query sebagai berikut:
+``` SQL
+DELETE FROM `namatabel` 
+WHERE
+`ID` = 'ID Record'
+```
