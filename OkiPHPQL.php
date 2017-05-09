@@ -51,7 +51,7 @@ class OkiPHPQL {
 			$cols	= implode(",",$cols);
 			$values	= implode(",",$values);
 			$qsimpan	= "INSERT INTO `$nmtabel` ($cols) VALUES ($values)";
-			echo $qsimpan;
+
 			$proses	= $this->kon->query($qsimpan);
 			if ($proses){
 				return TRUE;
